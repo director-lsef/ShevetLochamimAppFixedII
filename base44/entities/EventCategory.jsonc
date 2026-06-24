@@ -1,0 +1,37 @@
+{
+  "name": "EventCategory",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name of the category (e.g. 'Tzevet Mikey Training')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description"
+    },
+    "color": {
+      "type": "string",
+      "description": "Hex color for calendar display (e.g. '#6366f1')"
+    },
+    "staff_only": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this category is visible to staff only"
+    },
+    "category_type": {
+      "type": "string",
+      "enum": [
+        "workout",
+        "educational",
+        "ulpan",
+        "other"
+      ],
+      "default": "other",
+      "description": "Semantic type for attendance tracking. Used by LowEngagementReport and Home.jsx instead of fragile keyword matching. 'workout' for physical training, 'educational' for educational lessons, 'ulpan' for Hebrew lessons, 'other' for anything else."
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

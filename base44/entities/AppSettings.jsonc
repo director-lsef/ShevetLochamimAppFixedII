@@ -1,0 +1,17 @@
+{
+  "name": "AppSettings",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Setting key identifier (e.g. 'submission_notification_recipients')"
+    },
+    "value": {
+      "type": "string",
+      "description": "JSON-encoded value"
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

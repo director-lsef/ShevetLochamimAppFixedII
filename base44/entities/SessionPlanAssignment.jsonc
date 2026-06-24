@@ -1,0 +1,51 @@
+{
+  "name": "SessionPlanAssignment",
+  "type": "object",
+  "properties": {
+    "session_plan_id": {
+      "type": "string",
+      "description": "Foreign key → SessionPlan.id"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "Foreign key → User.id (the participant being assigned the plan)"
+    },
+    "assigned_by": {
+      "type": "string",
+      "description": "User ID of the instructor or admin who assigned this plan"
+    },
+    "assigned_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the assignment was made (YYYY-MM-DD)"
+    },
+    "target_completion_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Target date by which the participant should complete this plan (optional)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Current status of this assignment"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the participant completed the plan (set when status → 'completed')"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Instructor notes for this specific assignment"
+    }
+  },
+  "required": [
+    "session_plan_id",
+    "participant_id"
+  ]
+}

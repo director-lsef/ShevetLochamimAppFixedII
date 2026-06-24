@@ -1,0 +1,59 @@
+{
+  "name": "EventRegistration",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Event ID"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "Participant user ID"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "registered",
+        "attended",
+        "cancelled",
+        "no_show"
+      ],
+      "default": "registered",
+      "description": "Registration status"
+    },
+    "registration_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the user registered"
+    },
+    "cancellation_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the registration was cancelled"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "is_chanich_toran": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this participant is the Lead Trainee (Chanich Toran) for this specific session"
+    },
+    "email_reminder": {
+      "type": "string",
+      "enum": [
+        "none",
+        "1_day",
+        "1_hour",
+        "both"
+      ],
+      "default": "1_day",
+      "description": "Email reminder preference: none, 1 day before, 1 hour before, or both"
+    }
+  },
+  "required": [
+    "event_id",
+    "participant_id"
+  ]
+}

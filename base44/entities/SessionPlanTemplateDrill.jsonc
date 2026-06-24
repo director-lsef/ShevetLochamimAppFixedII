@@ -1,0 +1,33 @@
+{
+  "name": "SessionPlanTemplateDrill",
+  "type": "object",
+  "properties": {
+    "template_id": {
+      "type": "string",
+      "description": "Foreign key → SessionPlanTemplate.id"
+    },
+    "custom_drill_id": {
+      "type": "string",
+      "description": "Foreign key → CustomDrill.id"
+    },
+    "drill_name": {
+      "type": "string",
+      "description": "Display name — auto-populated from the linked CustomDrill"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Planned duration for this drill in minutes"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Instructor notes for this drill"
+    },
+    "order_index": {
+      "type": "number",
+      "description": "Display order within the template (0-based, drag-to-reorder updates this)"
+    }
+  },
+  "required": [
+    "template_id"
+  ]
+}

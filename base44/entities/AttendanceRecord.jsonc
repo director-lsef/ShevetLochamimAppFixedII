@@ -1,0 +1,42 @@
+{
+  "name": "AttendanceRecord",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "ID of the event this attendance record belongs to"
+    },
+    "participant_id": {
+      "type": "string",
+      "description": "ID of the User (participant) being marked"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "present",
+        "absent",
+        "late"
+      ],
+      "default": "absent",
+      "description": "Attendance status for this participant at this event"
+    },
+    "marked_by": {
+      "type": "string",
+      "description": "User ID of the instructor/admin who marked this record"
+    },
+    "marked_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when attendance was marked"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes (e.g. reason for absence, late arrival details)"
+    }
+  },
+  "required": [
+    "event_id",
+    "participant_id",
+    "status"
+  ]
+}

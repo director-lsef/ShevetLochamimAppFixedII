@@ -1,0 +1,43 @@
+{
+  "name": "UserNotification",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "The user this notification belongs to"
+    },
+    "title": {
+      "type": "string",
+      "description": "Short notification title"
+    },
+    "message": {
+      "type": "string",
+      "description": "Full notification message"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "event_reminder",
+        "status_update",
+        "submission_review",
+        "general"
+      ],
+      "default": "general",
+      "description": "Notification type"
+    },
+    "read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the user has read this notification"
+    },
+    "link": {
+      "type": "string",
+      "description": "Optional deep link (e.g. EventDetails?id=xxx)"
+    }
+  },
+  "required": [
+    "user_id",
+    "title",
+    "message"
+  ]
+}

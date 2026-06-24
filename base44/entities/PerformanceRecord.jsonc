@@ -1,0 +1,70 @@
+{
+  "name": "PerformanceRecord",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "ID of the participant this record belongs to"
+    },
+    "event_id": {
+      "type": "string",
+      "description": "ID of the event where this was recorded (optional for self-logged records)"
+    },
+    "recorded_by": {
+      "type": "string",
+      "description": "User ID of the instructor or participant who recorded this"
+    },
+    "record_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the result was recorded (YYYY-MM-DD)"
+    },
+    "drill_type": {
+      "type": "string",
+      "enum": [
+        "1k_run",
+        "2k_run",
+        "3km_run",
+        "300m_crawl",
+        "full_gan_saccer_crawl",
+        "other"
+      ],
+      "description": "Type of physical drill"
+    },
+    "custom_drill_id": {
+      "type": "string",
+      "description": "ID of a custom drill from ManageCustomDrills (used when drill_type is 'other')"
+    },
+    "drill_name": {
+      "type": "string",
+      "description": "Display name for the drill (used for custom drills)"
+    },
+    "time_seconds": {
+      "type": "number",
+      "description": "Completion time in seconds"
+    },
+    "proof_url": {
+      "type": "string",
+      "description": "URL of uploaded proof photo/video"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_verification",
+        "verified",
+        "rejected"
+      ],
+      "default": "pending_verification",
+      "description": "Admin review status. Self-logged records start pending. Instructor-logged records can be auto-verified."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes from the instructor or rejection reason"
+    }
+  },
+  "required": [
+    "participant_id",
+    "drill_type",
+    "record_date"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "name": "Event",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Event title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Event description"
+    },
+    "branch": {
+      "type": "string",
+      "enum": [
+        "צוות מייקי",
+        "צוות לוחמים"
+      ],
+      "default": "צוות מייקי",
+      "description": "Branch this event belongs to"
+    },
+    "category_id": {
+      "type": "string",
+      "description": "Event category ID"
+    },
+    "event_privacy": {
+      "type": "string",
+      "enum": [
+        "participants",
+        "staff-only"
+      ],
+      "default": "participants",
+      "description": "Event visibility: participants (visible to all) or staff-only (instructors/admins only)"
+    },
+    "lead_instructor_id": {
+      "type": "string",
+      "description": "Lead instructor (#1)"
+    },
+    "assistant_instructor_id": {
+      "type": "string",
+      "description": "Assistant instructor (#2)"
+    },
+    "support_instructor_id": {
+      "type": "string",
+      "description": "Support instructor (#3)"
+    },
+    "instructor_4_id": {
+      "type": "string",
+      "description": "Instructor #4"
+    },
+    "instructor_5_id": {
+      "type": "string",
+      "description": "Instructor #5"
+    },
+    "session_plan_id": {
+      "type": "string",
+      "description": "Attached session plan for this event"
+    },
+    "session_materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "uploaded_by": {
+            "type": "string"
+          },
+          "uploaded_at": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Uploaded session materials (PDFs, documents, images, etc.)"
+    },
+    "start_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event start date and time"
+    },
+    "end_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event end date and time"
+    },
+    "location": {
+      "type": "string",
+      "description": "Event location"
+    },
+    "capacity": {
+      "type": "number",
+      "description": "Maximum number of participants"
+    },
+    "registration_deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last date/time to register"
+    },
+    "cancellation_hours_before": {
+      "type": "number",
+      "description": "How many hours before event can be cancelled",
+      "default": 24
+    },
+    "recurrence_type": {
+      "type": "string",
+      "enum": [
+        "none",
+        "weekly",
+        "biweekly"
+      ],
+      "default": "none",
+      "description": "Event recurrence pattern"
+    },
+    "recurrence_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "When recurring events end"
+    },
+    "external_signup_url": {
+      "type": "string",
+      "description": "Optional external signup form URL (Monday.com form, Google Form, etc.)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "cancelled",
+        "completed"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "title",
+    "start_datetime",
+    "end_datetime"
+  ]
+}

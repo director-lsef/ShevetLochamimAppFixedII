@@ -1,0 +1,51 @@
+{
+  "name": "PendingInvitation",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Email of the invited user"
+    },
+    "user_type": {
+      "type": "string",
+      "enum": [
+        "participant",
+        "instructor",
+        "admin"
+      ],
+      "description": "Intended user type"
+    },
+    "invited_by": {
+      "type": "string",
+      "description": "ID of admin who sent invitation"
+    },
+    "invited_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the record was first created"
+    },
+    "last_invited_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the most recent invitation email was sent"
+    },
+    "profile_data": {
+      "type": "object",
+      "description": "Full profile data from Monday.com webhook, to be merged on first sign-in"
+    },
+    "processed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the user has signed in (true = completed onboarding)"
+    },
+    "signed_in_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the user actually completed sign-in"
+    }
+  },
+  "required": [
+    "email",
+    "user_type"
+  ]
+}

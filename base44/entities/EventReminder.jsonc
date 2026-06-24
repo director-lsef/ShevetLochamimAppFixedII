@@ -1,0 +1,49 @@
+{
+  "name": "EventReminder",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "Event this reminder is for"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID of instructor/admin who set this reminder"
+    },
+    "remind_before_value": {
+      "type": "number",
+      "description": "How far before the event to send the reminder"
+    },
+    "remind_before_unit": {
+      "type": "string",
+      "enum": [
+        "hours",
+        "days"
+      ],
+      "default": "hours",
+      "description": "Unit for remind_before_value"
+    },
+    "delivery": {
+      "type": "string",
+      "enum": [
+        "in_app",
+        "email",
+        "both"
+      ],
+      "default": "both",
+      "description": "How to deliver the reminder"
+    },
+    "sent": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this reminder has been sent"
+    }
+  },
+  "required": [
+    "event_id",
+    "created_by",
+    "remind_before_value",
+    "remind_before_unit",
+    "delivery"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Location",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Venue name (e.g. 'Park HaYarkon', 'Bloomfield Stadium', 'Tzevet Base')"
+    },
+    "address": {
+      "type": "string",
+      "description": "Optional full address for navigation"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes about the venue (parking, access, landmarks)"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

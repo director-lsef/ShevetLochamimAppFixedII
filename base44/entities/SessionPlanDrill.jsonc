@@ -1,0 +1,58 @@
+{
+  "name": "SessionPlanDrill",
+  "type": "object",
+  "properties": {
+    "session_plan_id": {
+      "type": "string",
+      "description": "Foreign key → SessionPlan.id"
+    },
+    "drill_type": {
+      "type": "string",
+      "enum": [
+        "1k_run",
+        "2k_run",
+        "3km_run",
+        "300m_crawl",
+        "full_gan_saccer_crawl",
+        "other"
+      ],
+      "default": "other",
+      "description": "Standard drill type, or 'other' when using a custom drill"
+    },
+    "custom_drill_id": {
+      "type": "string",
+      "description": "Foreign key → CustomDrill.id (when drill_type is 'other')"
+    },
+    "drill_name": {
+      "type": "string",
+      "description": "Display name — auto-populated from CustomDrill when a custom drill is selected"
+    },
+    "distance_meters": {
+      "type": "number",
+      "description": "Target distance in meters (optional)"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Scheduled start time within the session (HH:MM format)"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "Scheduled end time within the session (HH:MM format)"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Planned duration in minutes"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Instructor notes for this drill"
+    },
+    "order_index": {
+      "type": "number",
+      "description": "Display order within the plan (0-based, drag-to-reorder updates this)"
+    }
+  },
+  "required": [
+    "session_plan_id"
+  ]
+}

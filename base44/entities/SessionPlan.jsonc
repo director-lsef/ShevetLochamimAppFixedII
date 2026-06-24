@@ -1,0 +1,30 @@
+{
+  "name": "SessionPlan",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Plan name (e.g. 'Advanced Endurance Training')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Overview of the plan's goals and structure"
+    },
+    "total_duration_minutes": {
+      "type": "number",
+      "description": "Estimated total duration of the plan in minutes"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID of the instructor who created this plan"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this plan is available for use"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

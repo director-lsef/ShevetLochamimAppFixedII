@@ -1,0 +1,56 @@
+{
+  "name": "CustomDrill",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Drill name (e.g. 'Burpee Sprint', '400M Crawl')"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the drill involves"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Physical",
+        "Mental",
+        "Tactical",
+        "Crawls",
+        "Strength",
+        "Endurance",
+        "Other"
+      ],
+      "default": "Physical",
+      "description": "Drill category for filtering in the drill bank"
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Measurement types for this drill (e.g. ['time', 'distance'])"
+    },
+    "unit": {
+      "type": "string",
+      "description": "Unit of measurement (e.g. 'meters', 'reps', 'kg')"
+    },
+    "color": {
+      "type": "string",
+      "default": "#6366f1",
+      "description": "Hex color for UI display in the drill bank"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this drill appears in the active drill bank"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID of the instructor who created this drill"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "SessionPlanTemplate",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Template name (e.g. 'Hell Day Level 1')"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this training routine focuses on"
+    },
+    "total_duration_minutes": {
+      "type": "number",
+      "description": "Estimated total session duration in minutes"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User ID of the instructor who created this template"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

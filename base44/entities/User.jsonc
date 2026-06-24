@@ -1,0 +1,239 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "instructor",
+        "participant",
+        "alumni"
+      ],
+      "default": "participant",
+      "description": "User role in the system"
+    },
+    "title": {
+      "type": "string",
+      "enum": [
+        "Coordinator",
+        "Instructor",
+        "Head Instructor",
+        "Volunteer"
+      ],
+      "description": "Staff title — used to identify branch coordinators"
+    },
+    "user_type": {
+      "type": "string",
+      "enum": [
+        "participant",
+        "instructor",
+        "admin",
+        "alumni"
+      ],
+      "default": "participant",
+      "description": "User role in the system"
+    },
+    "participant_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "alumni",
+        "break",
+        "dropout"
+      ],
+      "default": "active",
+      "description": "Participant status"
+    },
+    "account_status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "frozen",
+        "pending",
+        "invited",
+        "archived"
+      ],
+      "default": "active",
+      "description": "Account status"
+    },
+    "freeze_end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date/time when the freeze expires"
+    },
+    "freeze_exempt": {
+      "type": "boolean",
+      "default": false,
+      "description": "[Fix 3.4] If true, this participant is excluded from monthly attendance requirements and will not appear in the Low Engagement Report or be auto-frozen. Set by admins for participants with documented exceptions (e.g. injury, travel, special circumstances)."
+    },
+    "primary_branch": {
+      "type": "string",
+      "enum": [
+        "צוות מייקי",
+        "צוות לוחמים"
+      ],
+      "default": "צוות מייקי",
+      "description": "Primary branch the participant belongs to"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "phone_confirmed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the participant has confirmed their phone number on first login"
+    },
+    "secondary_phone": {
+      "type": "string",
+      "description": "Secondary phone number"
+    },
+    "sex": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ],
+      "description": "Sex of the participant"
+    },
+    "about": {
+      "type": "string",
+      "description": "About the participant"
+    },
+    "age": {
+      "type": "number",
+      "description": "Age of the participant (computed from DOB at time of intake — DOB is not stored)"
+    },
+    "address": {
+      "type": "string",
+      "description": "City of residence / address"
+    },
+    "emergency_contact_name": {
+      "type": "string",
+      "description": "Emergency contact name"
+    },
+    "emergency_contact_relationship": {
+      "type": "string",
+      "description": "Emergency contact relationship to participant"
+    },
+    "emergency_contact_phone": {
+      "type": "string",
+      "description": "Emergency contact phone"
+    },
+    "monday_item_id": {
+      "type": "string",
+      "description": "Monday.com item ID for sync purposes"
+    },
+    "join_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date added to the program list"
+    },
+    "draft_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expected IDF draft date"
+    },
+    "graduation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date graduated/left the program"
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this user was archived"
+    },
+    "notes": {
+      "type": "string",
+      "description": "General notes about the participant"
+    },
+    "profile_image_url": {
+      "type": "string",
+      "description": "Profile image URL"
+    },
+    "show_on_leaderboard": {
+      "type": "boolean",
+      "default": true,
+      "description": "Opt-in for leaderboard visibility"
+    },
+    "instructor_notes": {
+      "type": "string",
+      "description": "Interview notes and about participant"
+    },
+    "target_unit": {
+      "type": "string",
+      "description": "What combat unit(s) the participant is hoping to draft to"
+    },
+    "hebrew_level": {
+      "type": "string",
+      "enum": [
+        "none",
+        "beginner",
+        "intermediate",
+        "advanced",
+        "fluent"
+      ],
+      "description": "Self-reported Hebrew language level"
+    },
+    "fitness_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "elite"
+      ],
+      "description": "Self-reported fitness level"
+    },
+    "fastest_3k": {
+      "type": "string",
+      "description": "Self-reported fastest 3K run time"
+    },
+    "draft_method": {
+      "type": "string",
+      "description": "How the participant intends on drafting"
+    },
+    "planned_service_length": {
+      "type": "string",
+      "description": "Planned length of military service"
+    },
+    "israel_framework": {
+      "type": "string",
+      "description": "The framework under which the participant came to Israel"
+    },
+    "stay_framework": {
+      "type": "string",
+      "description": "The framework the participant plans on staying in Israel under"
+    },
+    "reference_org": {
+      "type": "string",
+      "description": "Reference organization that referred the participant"
+    }
+  },
+  "required": [],
+  "rls": {
+    "instructor_notes": {
+      "read": [
+        "admin",
+        "instructor"
+      ],
+      "write": [
+        "admin",
+        "instructor"
+      ]
+    },
+    "phone": {
+      "read": [
+        "admin",
+        "instructor"
+      ],
+      "write": [
+        "admin",
+        "instructor"
+      ]
+    }
+  }
+}

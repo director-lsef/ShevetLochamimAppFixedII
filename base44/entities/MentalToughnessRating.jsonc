@@ -1,0 +1,75 @@
+{
+  "name": "MentalToughnessRating",
+  "type": "object",
+  "properties": {
+    "participant_id": {
+      "type": "string",
+      "description": "ID of the participant being rated"
+    },
+    "event_id": {
+      "type": "string",
+      "description": "ID of the event at which the rating was given"
+    },
+    "rated_by": {
+      "type": "string",
+      "description": "User ID of the instructor who submitted this rating"
+    },
+    "rating_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the rating was recorded (YYYY-MM-DD)"
+    },
+    "persistence_under_fatigue": {
+      "type": "number",
+      "description": "1–5 score: did participant push through fatigue and discomfort?"
+    },
+    "teamwork_quality": {
+      "type": "number",
+      "description": "1–5 score: cooperation, communication, and team awareness"
+    },
+    "leadership": {
+      "type": "number",
+      "description": "1–5 score: initiative, direction, and influence on the group"
+    },
+    "adaptability": {
+      "type": "number",
+      "description": "1–5 score: response to changing conditions, unexpected challenges"
+    },
+    "mental_focus": {
+      "type": "number",
+      "description": "1–5 score: concentration and composure under pressure"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Instructor's free-text observations for this session"
+    }
+  },
+  "required": [
+    "participant_id",
+    "event_id",
+    "rated_by",
+    "rating_date"
+  ],
+  "rls": {
+    "notes": {
+      "read": [
+        "admin",
+        "instructor"
+      ],
+      "write": [
+        "admin",
+        "instructor"
+      ]
+    },
+    "rated_by": {
+      "read": [
+        "admin",
+        "instructor"
+      ],
+      "write": [
+        "admin",
+        "instructor"
+      ]
+    }
+  }
+}
